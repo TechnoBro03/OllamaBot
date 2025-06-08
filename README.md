@@ -55,8 +55,8 @@ To install, run, and add the bot to your Discord server, follow these steps:
      - Under `Installation Contexts`, Select `Guild Install` only.
      - Under `Default Install Settings`, add the `applications.commands` and `bot` scopes, then the `Send Messages` and `Send Messages in Threads` permissions.
      - Finally, copy the `Discord Provided Link` and paste it into your browser to invite the bot to your server.
-    [!TIP]
-    For more information on creating a Discord bot, refer to the [Discord Developer Portal documentation](https://discord.com/developers/docs/intro).
+> [!TIP]
+> For more information on creating a Discord bot, refer to the [Discord Developer Portal documentation](https://discord.com/developers/docs/intro).
 
 3. **Run Docker Compose**
     - Ensure you have [Docker](https://www.docker.com/get-started) installed.
@@ -71,8 +71,8 @@ To install, run, and add the bot to your Discord server, follow these steps:
       ```bash
       docker compose up -d
       ```
-    [!TIP]
-    For more information about the Ollama Docker image, refer to the [Ollama documentation](https://hub.docker.com/r/ollama/ollama) (GPU support is available here).
+> [!TIP]
+> For more information about the Ollama Docker image, refer to the [Ollama documentation](https://hub.docker.com/r/ollama/ollama) (GPU support is available here).
 
 # File Structure
 ```
@@ -98,11 +98,11 @@ To install, run, and add the bot to your Discord server, follow these steps:
 # Local Development
 
 ## Running the Bot
-[!IMPORTANT]
-Ollama must be running for the bot to function properly. You can run Ollama using Docker with the following command:
-```bash
-docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
-```
+> [!IMPORTANT]
+> Ollama must be running for the bot to function properly. You can run Ollama using Docker with the following command:
+> ```bash
+> docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+> ```
 
 To run the bot locally, follow these steps:
 1. **Clone the repository**:
