@@ -68,7 +68,7 @@ class GuildSettings:
 
 	@staticmethod
 	def dict_factory(x) -> Dict[str, Any]:
-		excluded = ("on_change")
+		excluded = ("on_change",)
 		return {k: v for (k, v) in x if ((v is not None) and (k not in excluded))}
 
 class SettingsManager:
