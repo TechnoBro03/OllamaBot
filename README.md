@@ -107,7 +107,7 @@ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 To run the bot locally, follow these steps:
 1. **Clone the repository**:
     ```bash
-    git clone temp-link
+    git clone https://github.com/TechnoBro03/OllamaBot
     cd ollamabot
     ```
 2. Create & activate a virtual environment (optional but recommended):
