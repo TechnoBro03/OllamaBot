@@ -1,0 +1,45 @@
+services:
+  ollama-bot:
+    image: ollama-bot:latest
+    container_name: ollama-bot
+
+    env_file:
+      - ./.env
+
+    volumes:
+      - discord-data:/app/data # Persistent data for Discord bot
+
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    # image: ollama/ollama:rocm # For AMD GPUs (linux only)
+    container_name: ollama
+
+    ports:
+      - "11434:11434"
+
+    volumes:
+      - ollama-data:/root/.ollama # Persistent data for Ollama models
+
+    restart: unless-stopped
+
+    # For AMD GPUs (Linux only)
+    # devices:
+    #  - "/dev/kfd:/dev/kfd"
+    #  - "/dev/dri:/dev/dri"
+
+volumes:
+  ollama-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "D:/Programming/ollama" # Change to your desired path
+
+  discord-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "D:/Programming/ollama-bot" # Change to your desired path
