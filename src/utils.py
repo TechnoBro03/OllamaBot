@@ -18,7 +18,8 @@ def has_required_role(interaction: Interaction) -> bool:
 		bool: True if the user has the required role, False otherwise.
 
 	Raises:
-		CheckFailure: If an error occurs while checking the role or if the user is not a member of a guild.
+		CheckFailure: If the user does not have the required role.
+		ValueError: If the interaction does not have a guild or user is not a member.
 	"""
 	if interaction.guild is None or not isinstance(interaction.user, Member):
 		raise ValueError("Guild is not defined or user is not a member.")
@@ -81,7 +82,7 @@ async def to_ollama_message(discord_client: "OllamaBot", message: DiscordMessage
 	"""
 	if message.author == discord_client.user:
 		role = "assistant"
-		content = f"{message.content}"
+		content = message.content
 	else:
 		role = "user"
 		content = f"{message.author.mention}: {message.content}"

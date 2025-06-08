@@ -1,7 +1,7 @@
 import json
 import logging
 from dataclasses import asdict, dataclass, field
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Callable, Dict, Iterable, Optional, Tuple
 from pathlib import Path
 
 @dataclass(slots=True)
@@ -67,9 +67,15 @@ class GuildSettings:
 			callback()
 
 	@staticmethod
-	def dict_factory(x) -> Dict[str, Any]:
+	def dict_factory(items: Iterable[Tuple[str, Any]]) -> Dict[str, Any]:
+		"""
+		Custom dictionary factory to exclude certain keys from the serialized output.
+		
+		Args:
+			items (Iterable[Tuple[str, Any]]): An iterable of key-value pairs to convert to a dictionary.
+		"""
 		excluded = ("on_change",)
-		return {k: v for (k, v) in x if ((v is not None) and (k not in excluded))}
+		return {k: v for (k, v) in items if ((v is not None) and (k not in excluded))}
 
 class SettingsManager:
 	"""
