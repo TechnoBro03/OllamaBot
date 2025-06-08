@@ -1,6 +1,6 @@
 services:
   ollama-bot:
-    image: ollama-bot:latest
+    image: ghcr.io/technobro03/ollamabot:latest
     container_name: ollama-bot
 
     env_file:
